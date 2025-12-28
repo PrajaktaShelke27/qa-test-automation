@@ -1,0 +1,16 @@
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >
+
+<!-- <?xml version="1.0"" encoding="UTF-8"?>-->
+<suite name="AutomationSuite" verbose="1" parallel="tests" thread-count="2">
+    <listeners>
+    <listener class-name="com.Listeners.TestListener" />
+</listeners>
+    <test name="LoginTests">
+        <classes>
+            <class name="com.test.testcases.Ele_Page_Testcases"/>
+            
+          <!--  <class name="com.test.testcases.MainPage_Testcases"/>--> 
+        </classes>
+    </test>
+</suite>

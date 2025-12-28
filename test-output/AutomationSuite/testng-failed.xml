@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="tests" name="Failed suite [AutomationSuite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.Listeners.TestListener"/>
+  </listeners>
+  <test thread-count="2" parallel="tests" name="LoginTests(failed)">
+    <classes>
+      <class name="com.test.testcases.Ele_Page_Testcases">
+        <methods>
+          <include name="setup"/>
+          <include name="verifyrightClick"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.test.testcases.Ele_Page_Testcases -->
+    </classes>
+  </test> <!-- LoginTests(failed) -->
+</suite> <!-- Failed suite [AutomationSuite] -->

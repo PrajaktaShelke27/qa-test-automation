@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-12-20T13:08:51 IST" name="Default suite" finished-at="2025-12-20T13:09:49 IST" duration-ms="58022">
+    <groups>
+    </groups>
+    <test started-at="2025-12-20T13:08:51 IST" name="Default test" finished-at="2025-12-20T13:09:49 IST" duration-ms="58022">
+      <class name="com.test.testcases.Mainpage_Testcases">
+        <test-method is-config="true" signature="checkBT()[pri:0, instance:com.test.testcases.Mainpage_Testcases@7d9f158f]" started-at="2025-12-20T13:08:51 IST" name="checkBT" finished-at="2025-12-20T13:08:51 IST" duration-ms="15" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkBT -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.test.testcases.Mainpage_Testcases@7d9f158f]" started-at="2025-12-20T13:08:51 IST" name="setup" finished-at="2025-12-20T13:09:19 IST" duration-ms="28097" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="validateEle_pageClick()[pri:0, instance:com.test.testcases.Mainpage_Testcases@7d9f158f]" started-at="2025-12-20T13:09:19 IST" name="validateEle_pageClick" finished-at="2025-12-20T13:09:21 IST" duration-ms="1343" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateEle_pageClick -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.test.testcases.Mainpage_Testcases@7d9f158f]" started-at="2025-12-20T13:09:21 IST" name="tearDown" finished-at="2025-12-20T13:09:25 IST" duration-ms="4279" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.test.testcases.Mainpage_Testcases@7d9f158f]" started-at="2025-12-20T13:09:25 IST" name="setup" finished-at="2025-12-20T13:09:48 IST" duration-ms="23170" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="validatelogoimg()[pri:0, instance:com.test.testcases.Mainpage_Testcases@7d9f158f]" started-at="2025-12-20T13:09:48 IST" name="validatelogoimg" finished-at="2025-12-20T13:09:48 IST" duration-ms="73" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validatelogoimg -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.test.testcases.Mainpage_Testcases@7d9f158f]" started-at="2025-12-20T13:09:48 IST" name="tearDown" finished-at="2025-12-20T13:09:49 IST" duration-ms="938" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="checkAT()[pri:0, instance:com.test.testcases.Mainpage_Testcases@7d9f158f]" started-at="2025-12-20T13:09:49 IST" name="checkAT" finished-at="2025-12-20T13:09:49 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkAT -->
+      </class> <!-- com.test.testcases.Mainpage_Testcases -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
