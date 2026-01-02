@@ -11,6 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.Utilities.TestUtils;
+
 import ch.qos.logback.core.joran.action.Action;
 
 public class ElementPage extends BaseClass {
@@ -136,8 +138,8 @@ public class ElementPage extends BaseClass {
 	WebElement linkpagetitle;
 	@FindBy(linkText = "Home")
 	WebElement homelink;
-	@FindBy(partialLinkText="Home")
-	WebElement home1;
+	@FindBy(xpath="//a[@id='dynamicLink']")
+	WebElement home1link;
 	@FindBy(xpath="//strong[contains(text(),'Following links will send an api call')]")
 	WebElement linkpagetitle2;
 	@FindBy(linkText = "Created")
@@ -148,14 +150,22 @@ public class ElementPage extends BaseClass {
 	WebElement moved_Ele;
 	@FindBy(linkText = "Bad Request")
 	WebElement badReq_Ele;
-	@FindBy(linkText = "Unautherized")
+	@FindBy(linkText = "Unauthorized")
 	WebElement unautherized_Ele;
-	@FindBy(linkText = "forbidden")
+	@FindBy(linkText = "Forbidden")
 	WebElement forbidden_Ele;
 	@FindBy(linkText = "Not Found")
 	WebElement notFound_Ele;
 	@FindBy(xpath="//p[@id='linkResponse'] 	")
 	WebElement LinkResponse;
+	@FindBy(xpath="//span[text()='Broken Links - Images']")
+	WebElement brokenimg_linkbtn;
+	@FindBy(xpath="//p[text()='Valid image']//following-sibling::img")
+	List <WebElement> Imglist;
+	@FindBy(xpath="//p[text()='Valid Link']//following-sibling::a")
+	List <WebElement> link_list;
+	
+	
 
 	public ElementPage()
 
@@ -439,5 +449,155 @@ public class ElementPage extends BaseClass {
 		return Homelinkstr;
 		
 	}
+	public String verifysecondHomeLink()
+	{
+		Links.click();
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", homelink);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(homelink));
+		
+		home1link.click();
+		String Homelinkstr=home1link.getAttribute("href");
+		return Homelinkstr;
+		
+	}
+	public String verifyAPILinkcreated()
+	{
+		Links.click();
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", created_Ele);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(created_Ele));
+		
+		created_Ele.click();
+		
+		String Homelinkstr=LinkResponse.getText();
+		return Homelinkstr;
+		
+	}
+	public String verifyAPILinkNoContent()
+	{
+		Links.click();
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", noContent_Ele);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(noContent_Ele));
+		
+		noContent_Ele.click();
+		
+		String Homelinkstr=LinkResponse.getText();
+		return Homelinkstr;
+		
+	}
+	public String verifyAPILinkMoved()
+	{
+		Links.click();
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", moved_Ele);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(moved_Ele));
+		
+		moved_Ele.click();
+		
+		String Homelinkstr=LinkResponse.getText();
+		return Homelinkstr;
+		
+	}
+	public String verifyAPILinkBadReq()
+	{
+		Links.click();
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", badReq_Ele);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(badReq_Ele));
+		
+		badReq_Ele.click();
+		
+		String Homelinkstr=LinkResponse.getText();
+		return Homelinkstr;
+		
+	}
+	public String verifyAPILinkUnauthorized()
+	{
+		Links.click();
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", unautherized_Ele);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(unautherized_Ele));
+		
+		unautherized_Ele.click();
+		
+		String Homelinkstr=LinkResponse.getText();
+		return Homelinkstr;
+		
+	}
+	public String verifyAPILinkForbidden()
+	{
+		Links.click();
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", forbidden_Ele);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(forbidden_Ele));
+		
+		forbidden_Ele.click();
+		
+		String Homelinkstr=LinkResponse.getText();
+		return Homelinkstr;
+		
+	}
+	public String verifyAPILinkNotfound()
+	{
+		Links.click();
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", notFound_Ele);
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(notFound_Ele));
+		
+		notFound_Ele.click();
+		
+		String Homelinkstr=LinkResponse.getText();
+		return Homelinkstr;
+		
+	}
+	
+	public int VerifykbrokenLink()
+	{
+		int brokencount=0;
+		brokenimg_linkbtn.click();
+		for(WebElement link : link_list)
+		{
+		String url=link.getAttribute("href");
+		if(TestUtils.isBrokenLink(url));{
+			brokencount++;
+			}			
+		}
+		return brokencount;
+		
+	}
+	public int VerifykbrokenImgs()
+	{
+		int brokencount=0;
+		brokenimg_linkbtn.click();
+		for(WebElement img : Imglist)
+		{
+		String url=img.getAttribute("src");
+		if(TestUtils.isImageBroken(driver, img)){
+			System.out.println(TestUtils.isImageBroken(driver, img));
+			System.out.println("Broken Image (UI): "+url);
+			brokencount++;
+			} else
+			{
+			System.out.println(TestUtils.isImageBroken(driver, img));
+			System.out.println("valid Image (UI): "+url);
+		}
+		}
+		return brokencount;
+		
+	}
+
+
+
+	
 
 }
